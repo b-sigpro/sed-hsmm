@@ -2,6 +2,8 @@
 This repository provides scripts for SED-HSMM and HSM3 in our paper: [Onset-and-Offset-Aware Sound Event Detection via Differentiable Frame-to-Event Mapping
 ](https://ieeexplore.ieee.org/document/10771642/).
 
+<div align="center"><img src="https://raw.githubusercontent.com/b-sigpro/sed-hsmm/main/docs/image/overview.png" width="600"/></div>
+
 ## Features
 - Onset-and-Offset-Aware Sound Event Detection based on a Hidden Semi-Markov Mixture Model (HSM3)
 - Differentiable Frame-to-Event Mapping via the Forward-Backward Algorithm
