@@ -22,8 +22,8 @@ class HSM3Head(nn.Module):
         C (int): Number of output classes (default is 10).
         D (int): Maximum duration (default is 156).
         F (int): Number of input feature channels (default is 256).
-        a_00 (float): Initial self-transition probability for the inactive state (default is 0.99).
-        a_10 (float): Initial self-transition probability for the active state (default is 0.99).
+        a_00 (float): Self-transition probability from the inactive state (default: 0.99).
+        a_10 (float): Transition probability from the active state to the inactive state (default: 0.99).
 
     Forward Args:
         h (torch.Tensor): Input feature tensor of shape (batch_size, F, sequence_length).
