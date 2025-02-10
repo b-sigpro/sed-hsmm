@@ -72,7 +72,7 @@ Please cite as:
   author={Yoshinaga, Tomoya and Tanaka, Keitaro and Bando, Yoshiaki and Imoto, Keisuke and Morishima, Shigeo},
   journal={IEEE Signal Processing Letters}, 
   volume={32},
-  year={2025},
+  year={2024},
   pages={186-190},
   publisher={IEEE}
 }
