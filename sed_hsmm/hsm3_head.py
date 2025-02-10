@@ -26,7 +26,7 @@ class HSM3Head(nn.Module):
         a_10 (float): Transition probability from the active state to the inactive state (default: 0.99).
 
     Forward Args:
-        h (torch.Tensor): Input feature tensor of shape (batch_size, F, sequence_length).
+        h (torch.Tensor): Input feature tensor of shape (batch_size, F, T).
 
     Returns:
         tuple[torch.Tensor, torch.Tensor]:

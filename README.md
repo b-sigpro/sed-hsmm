@@ -33,17 +33,21 @@ Emission probabilities, mixture ratios, and duration distributions are learned a
 ## Forward pass
 
 ### Input
-- **h** *(torch.Tensor)*: Input feature tensor of shape `(batch_size, F, sequence_length)`
+- **h** *(torch.Tensor)*: Input feature tensor of shape `(batch_size, F, T)`
 
 ### Returns
 - **logp_event** *(torch.Tensor)*: Log posterior probabilities of events with shape `(batch_size, C, N, D, T)`
 - **p_frame** *(torch.Tensor)*: Posterior frame-wise probabilities with shape `(batch_size, C, T)`
 
 ## Event-wise  loss function
-Let `y_eve` be a `torch.Tensor` representing event-level groundtruth labels with the shape `(B, C, N, D, T)`, where `B` and `N` are the batch size and the number of states (0=inactive, 1=active). The event-wise loss function can be calculated by:
+Ley `y_frame` be a `torch.Tensor` representing frame-level groundtruth labels whose shape is `(batch_size, C, T)` and contents are 0 (inactive) or 1 (active).
+The event-wise loss function can be calculated by:
 ```python
+from sed_hsmm import HSM3Head, EventProbabilityLoss, convert_labels
+
 crnn = CRNN(...)  # please provide yourself
 hsm3_head = HSM3Head(F=crnn.out_channels)  # initialize HSM3Head
+calc_event_loss = EventProbabilityLoss()
 
 ...
 
@@ -53,7 +57,8 @@ logp_event, p_frame = hsm3_head(h)  # calculate event-level posterior probabilit
 ...
 
 # calculate loss function
-loss = -torch.mean(torch.sum(y_eve * logp_event, dim=(-3, -2, -1)) / torch.sum(y_eve, dim=(-3, -2, -1)), dim=-1)
+y_event = convert_labels(y_frame)
+loss = calc_event_loss(logp_event, y_event)
 ```
 
 # Limitations
