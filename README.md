@@ -25,7 +25,7 @@ Emission probabilities, mixture ratios, and duration distributions are learned a
 - **C** *(int)*: Number of output classes (default: 10)
 - **D** *(int)*: Maximum duration (default: 156)
 - **F** *(int)*: Number of input feature channels (default: 256)
-- **a_00** *(float)*: Self-transition probability from the inactive state (default: 0.99)
+- **a_00** *(float)*: Self-transition probability for the inactive state (default: 0.99)
 - **a_10** *(float)*: Transition probability from the active state to the inactive state (default: 0.99)
 
 ## Forward pass
