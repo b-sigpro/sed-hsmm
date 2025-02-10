@@ -46,6 +46,8 @@ class GammaDuration(nn.Module):
         p_short: int = -4,
         eps: float = 1e-6,
     ):
+        super().__init__()
+
         self.shape_factor = shape_factor
         self.scale_factor = D / self.shape_factor
 
