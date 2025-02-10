@@ -40,7 +40,7 @@ Emission probabilities, mixture ratios, and duration distributions are learned a
 - **p_frame** *(torch.Tensor)*: Posterior frame-wise probabilities with shape `(batch_size, C, T)`
 
 ## Event-wise  loss function
-Ley `y_frame` be a `torch.Tensor` representing frame-level groundtruth labels whose shape is `(batch_size, C, T)` and contents is 0 (inactive) or 1 (active).
+Ley `y_frame` be a `torch.Tensor` representing frame-level groundtruth labels whose shape is `(batch_size, C, T)` and contents are 0 (inactive) or 1 (active).
 The event-wise loss function can be calculated by:
 ```python
 from sed_hsmm import HSM3Head, EventProbabilityLoss, convert_labels
